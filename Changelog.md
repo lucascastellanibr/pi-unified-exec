@@ -2,6 +2,31 @@
 
 All notable changes to this project. **Newest entries go on top.**
 
+## 2026-05-06
+
+### Changed
+
+- **Compatibility follow-ups resolved**: replaced the hand-restated render
+  context shape with a type derived from pi's exported `ToolDefinition`, and
+  documented the resolved follow-ups in `to_improve.md`.
+- **Improvement backlog detail**: expanded each `to_improve.md` item with a
+  lightweight plan, code references, risk evaluation, and verification gate
+  based on the latest pi release notes.
+- **Upstream pi 0.73.0 compatibility**: cloned and audited the latest
+  `badlogic/pi-mono` source at `30298368` and updated development dependencies
+  to `@mariozechner/pi-coding-agent` / `@mariozechner/pi-tui` 0.73.0. Switched
+  tool schema imports and package metadata from the legacy
+  `@sinclair/typebox` package name to pi's current `typebox` package while
+  keeping the existing extension API usage intact.
+
+### Added
+
+- **Shutdown metadata coverage**: added tests for all current pi
+  `session_shutdown` reasons so session cleanup remains covered across quit,
+  reload, and session replacement paths.
+- **Upstream improvement notes**: added `to_improve.md` with follow-up
+  opportunities and pitfalls found while reviewing recent pi releases.
+
 ## 2026-04-27 — 0.3.1
 
 ### Fixed

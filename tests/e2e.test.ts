@@ -330,6 +330,22 @@ describe("unified-exec e2e", () => {
 		assert.equal(l.details.active_count, 0);
 	});
 
+	for (const reason of ["quit", "reload", "new", "resume", "fork"] as const) {
+		it(`session_shutdown reason=${reason} terminates live sessions`, async () => {
+			const h = makeHarness();
+			await h.emit("session_start");
+			const r = await h.call("exec_command", { cmd: "sleep 10", yield_time_ms: 200 });
+			assert.ok(r.details.session_id);
+			await h.emit("session_shutdown", {
+				type: "session_shutdown",
+				reason,
+				targetSessionFile: reason === "new" || reason === "resume" || reason === "fork" ? "/tmp/next.jsonl" : undefined,
+			});
+			const l = await h.call("list_sessions", {});
+			assert.equal(l.details.active_count, 0);
+		});
+	}
+
 	it("external abort breaks the yield but leaves session alive", async () => {
 		const h = makeHarness();
 		await h.emit("session_start");

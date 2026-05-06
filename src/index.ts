@@ -32,7 +32,7 @@ import {
 	truncateTail,
 	type TruncationResult,
 } from "@mariozechner/pi-coding-agent";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 import { collectOutputUntilDeadline } from "./collect.ts";
 import { sleep } from "./notify.ts";

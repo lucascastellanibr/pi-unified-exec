@@ -14,29 +14,17 @@ import {
 	DEFAULT_MAX_BYTES,
 	formatSize,
 	type Theme,
+	type ToolDefinition,
 	type ToolRenderResultOptions,
 	truncateToVisualLines,
 } from "@mariozechner/pi-coding-agent";
 import { Container, Text, truncateToWidth, type Component } from "@mariozechner/pi-tui";
 
-/**
- * Local re-statement of pi's ToolRenderContext since it isn't re-exported
- * from the public surface of @mariozechner/pi-coding-agent.
- */
-interface ToolRenderContext<TState = any, TArgs = any> {
+type ExportedRenderCall<TState> = NonNullable<ToolDefinition<any, any, TState>["renderCall"]>;
+type ToolRenderContext<TState = any, TArgs = any> = Parameters<ExportedRenderCall<TState>>[2] & {
 	args: TArgs;
-	toolCallId: string;
-	invalidate: () => void;
-	lastComponent: Component | undefined;
 	state: TState;
-	cwd: string;
-	executionStarted: boolean;
-	argsComplete: boolean;
-	isPartial: boolean;
-	expanded: boolean;
-	showImages: boolean;
-	isError: boolean;
-}
+};
 
 // Preview lines for collapsed display (matches pi bash).
 const PREVIEW_LINES = 5;

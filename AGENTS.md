@@ -10,6 +10,5 @@ If you want to inspect pi-mono's source code, git clone https://github.com/badlo
 
 The following are the frontier models. Prefer to use them as defaults:
 
-- `gpt-5.4`
+- `gpt-5.5`
 - `claude-opus-4-7`
-- `claude-sonnet-4-6`
