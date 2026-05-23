@@ -1,5 +1,5 @@
 /**
- * Unit tests for truncateTail — re-exported from `@mariozechner/pi-coding-agent`.
+ * Unit tests for truncateTail — re-exported from `@earendil-works/pi-coding-agent`.
  *
  * These tests pin the behavior we depend on. If pi-coding-agent ever
  * changes truncation semantics in a way that breaks unified-exec, these
@@ -8,7 +8,7 @@
 
 import { strict as assert } from "node:assert";
 import { describe, it } from "node:test";
-import { DEFAULT_MAX_BYTES, DEFAULT_MAX_LINES, formatSize, truncateTail } from "@mariozechner/pi-coding-agent";
+import { DEFAULT_MAX_BYTES, DEFAULT_MAX_LINES, formatSize, truncateTail } from "@earendil-works/pi-coding-agent";
 
 describe("truncateTail", () => {
 	it("passes short content through untouched", () => {

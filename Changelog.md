@@ -2,6 +2,17 @@
 
 All notable changes to this project. **Newest entries go on top.**
 
+## Unreleased
+
+### Changed
+
+- **Pi package namespace migration**: switched extension imports and package
+  metadata from `@mariozechner/pi-coding-agent` / `@mariozechner/pi-tui` to
+  `@earendil-works/pi-coding-agent` / `@earendil-works/pi-tui` 0.75.1 so local
+  development matches the installed Pi package namespace.
+- **Developer commands**: added `npm run typecheck` and `npm test` scripts for
+  the standard TypeScript and Node test gates.
+
 ## 2026-05-06
 
 ### Changed
